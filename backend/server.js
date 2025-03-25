@@ -2,14 +2,16 @@ const exp = require('express')
 const cors = require('cors')
 const moong = require('mongoose')
 const userRouter = require('./routes/UserRoutes')
+const questionRoutes = require('./routes/questionRoutes');
 
-const app = exp();
+const app = exp();  
 
-app.use(exp.json());
+app.use(exp.json());  
 app.use(cors());
 
-
 app.use('/user' , userRouter)
+
+app.use('/api/questions', questionRoutes);
 
 const port  = process.env.PORT || 8000 ;
 app.listen(port , ()=>{
@@ -27,8 +29,6 @@ async function conne(){
         console.log("connected to the DB")
     }
 }
-
-
 
 
 
