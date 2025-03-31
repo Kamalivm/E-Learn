@@ -10,6 +10,8 @@ import NumberTest from "./pages/NumberTest";
 import Profile from "./components/Profile";
 import Settings from "./components/Settings";
 import Notification from "./components/Notification";
+import Signin from "./components/Signin";
+import Signup from "./components/Signup";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/learning" element={<Learning />} />
         <Route path="/easy" element={<EasyLevel />} />
         <Route path="/medium" element={<MediumLevel />} />
