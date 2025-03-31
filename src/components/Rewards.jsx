@@ -39,17 +39,15 @@ const Rewards = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 p-6">
-            {/* Heading */}
+
             <h2 className="text-4xl font-extrabold text-blue-700 text-center mb-6">
                 🌟 Unlock Achievements & Earn Exciting Rewards!
             </h2>
 
-            {/* Introduction */}
             <p className="text-center text-lg text-blue-600 mb-8">
                 "Your hard work deserves a celebration! Earn gems, badges, and trophies as you progress. Stay consistent and watch your achievements grow!"
             </p>
 
-            {/* Rewards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {rewards.map((reward, index) => (
                     <div
@@ -65,7 +63,6 @@ const Rewards = () => {
                 ))}
             </div>
 
-            {/* Streak Rewards Section */}
             <div className="mt-12 bg-white p-6 rounded-xl shadow-md border border-blue-300/60">
                 <h3 className="text-3xl font-bold text-blue-700 text-center mb-4">
                     🔥 Streak Milestones
@@ -88,7 +85,6 @@ const Rewards = () => {
                 </div>
             </div>
 
-            {/* Call to Action */}
             <div className="mt-8 text-center">
                 <Link to="/">
                     <button className="bg-blue-500 text-white px-6 py-3 rounded-xl text-lg 

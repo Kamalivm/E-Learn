@@ -6,23 +6,23 @@ import starsImage from "/src/assets/stars.webp";
 import handImage from "/src/assets/hand.webp";
 
 const numberQuestions = [
-    { 
-        question: "How many apples are there?", 
-        image: applesImage, 
-        correctAnswer: "3", 
-        options: ["2", "3", "4", "5"] 
+    {
+        question: "How many apples are there?",
+        image: applesImage,
+        correctAnswer: "3",
+        options: ["2", "3", "4", "5"]
     },
-    { 
-        question: "Count the stars!", 
-        image: starsImage, 
-        correctAnswer: "4", 
-        options: ["3", "4", "5", "6"] 
+    {
+        question: "Count the stars!",
+        image: starsImage,
+        correctAnswer: "4",
+        options: ["3", "4", "5", "6"]
     },
-    { 
-        question: "How many fingers am I holding up?", 
-        image: handImage, 
-        correctAnswer: "5", 
-        options: ["4", "5", "6", "7"] 
+    {
+        question: "How many fingers am I holding up?",
+        image: handImage,
+        correctAnswer: "5",
+        options: ["4", "5", "6", "7"]
     }
 ];
 
@@ -70,12 +70,11 @@ const NumberTest = () => {
 
     return (
         <div className="bg-white min-h-screen p-6 text-center">
-            {/* Header */}
+            
             <h2 className="text-5xl font-extrabold text-blue-800 mb-6 drop-shadow-lg">
                 🔢 Number Testing Quiz
             </h2>
 
-            {/* Progress Bar */}
             <div className="w-full bg-gray-300 rounded-full h-4 mb-6 shadow-inner">
                 <div
                     className="bg-green-500 h-4 rounded-full"
@@ -83,7 +82,6 @@ const NumberTest = () => {
                 ></div>
             </div>
 
-            {/* Question Card */}
             <div className="bg-white rounded-2xl p-5 shadow-xl border-4 border-blue-400 relative w-80 h-80 mx-auto mb-6">
                 <img
                     src={numberQuestions[currentIndex].image}
@@ -98,12 +96,10 @@ const NumberTest = () => {
                 </button>
             </div>
 
-            {/* Question Text */}
             <h3 className="text-2xl font-bold text-blue-600 mb-4">
                 {numberQuestions[currentIndex].question}
             </h3>
 
-            {/* Answer Options */}
             <div className="grid grid-cols-2 gap-4 mb-6">
                 {numberQuestions[currentIndex].options.map((option) => (
                     <button
@@ -122,7 +118,6 @@ const NumberTest = () => {
                 ))}
             </div>
 
-            {/* Navigation & Reward System */}
             <div className="flex justify-center items-center gap-6">
                 {currentIndex > 0 && (
                     <button
@@ -143,7 +138,6 @@ const NumberTest = () => {
                 )}
             </div>
 
-            {/* Feedback & Stars */}
             {isCorrect && (
                 <div className="mt-4 text-3xl text-green-500 font-bold animate-bounce">
                     🎉 Awesome! 🎉

@@ -5,9 +5,8 @@ const Learning = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex flex-col items-center min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 text-center p-6">
+        <div className="flex flex-col items-center min-h-screen bg-gradient-to-br text-center p-6">
 
-            {/* Title Section */}
             <div className="mb-8">
                 <h2 className="text-4xl font-bold text-blue-700 mb-2">
                     🚀 Choose Your Learning Level
@@ -17,9 +16,8 @@ const Learning = () => {
                 </p>
             </div>
 
-            {/* Level Selection Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
-                {/* Easy Level */}
+                
                 <div
                     className="bg-white shadow-lg border-2 border-green-400 rounded-2xl text-green-700 
                                 p-4 flex flex-col items-center cursor-pointer
@@ -31,7 +29,6 @@ const Learning = () => {
                     <p className="text-sm mt-1 italic">"Start small, dream big!"</p>
                 </div>
 
-                {/* Medium Level */}
                 <div
                     className="bg-white shadow-lg border-2 border-yellow-400 rounded-2xl text-yellow-700 
                                 p-4 flex flex-col items-center cursor-pointer 
@@ -43,7 +40,6 @@ const Learning = () => {
                     <p className="text-sm mt-1 italic">"Unlock your thinking power!"</p>
                 </div>
 
-                {/* Advanced Level */}
                 <div
                     className="bg-white shadow-lg border-2 border-red-400 rounded-2xl text-red-700 
                                 p-4 flex flex-col items-center cursor-pointer 
@@ -56,14 +52,12 @@ const Learning = () => {
                 </div>
             </div>
 
-            {/* Rewards Section */}
             <div className="mt-10 p-6 bg-white rounded-2xl shadow-md w-full max-w-3xl border-2 border-blue-400">
                 <h3 className="text-3xl font-bold mb-3 text-blue-600">🎯 Earn Rewards!</h3>
                 <p className="text-md mb-4">
                     Complete levels to win gems and unlock special achievements.
                 </p>
 
-                {/* Progress Bar for Motivation */}
                 <div className="relative w-full bg-gray-300 rounded-full h-6 overflow-hidden shadow-inner">
                     <div
                         className="bg-gradient-to-r from-yellow-400 to-green-400 h-6 rounded-full animate-progress"
@@ -76,7 +70,6 @@ const Learning = () => {
                     <span>70% Complete</span>
                 </div>
 
-                {/* Gem Count Display */}
                 <div className="flex items-center justify-center mt-6 gap-2">
                     <FaGem size={40} className="text-yellow-400 animate-pulse" />
                     <p className="text-xl font-bold text-blue-600">250 Gems Collected!</p>
