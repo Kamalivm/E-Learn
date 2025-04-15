@@ -1,0 +1,169 @@
+{
+    "questions": [
+      {
+        "level": "easy",
+        "questions": [
+          {
+            "question": "What is 3 + 2?",
+            "options": ["4", "5", "6", "3"],
+            "answer": "5"
+          },
+          {
+            "question": "What color are bananas when they are ripe?",
+            "options": ["Red", "Yellow", "Green", "Purple"],
+            "answer": "Yellow"
+          },
+          {
+            "question": "Which animal says 'woof'?",
+            "options": ["Dog", "Cat", "Cow", "Sheep"],
+            "answer": "Dog"
+          },
+          {
+            "question": "How many sides does a square have?",
+            "options": ["3", "4", "5", "6"],
+            "answer": "4"
+          },
+          {
+            "question": "What is the opposite of 'big'?",
+            "options": ["Small", "Cold", "Bright", "Tall"],
+            "answer": "Small"
+          },
+          {
+            "question": "Which shape has no corners?",
+            "options": ["Circle", "Square", "Rectangle", "Triangle"],
+            "answer": "Circle"
+          },
+          {
+            "question": "What is the color of grass?",
+            "options": ["Blue", "Yellow", "Green", "Red"],
+            "answer": "Green"
+          },
+          {
+            "question": "What is 10 - 6?",
+            "options": ["4", "5", "6", "3"],
+            "answer": "4"
+          },
+          {
+            "question": "Which fruit is red and often eaten as a snack?",
+            "options": ["Banana", "Apple", "Orange", "Grapes"],
+            "answer": "Apple"
+          },
+          {
+            "question": "Which season is known for snow and cold weather?",
+            "options": ["Summer", "Winter", "Spring", "Autumn"],
+            "answer": "Winter"
+          }
+        ]
+      },
+      {
+        "level": "medium",
+        "questions": [
+          {
+            "question": "What is 8 × 7?",
+            "options": ["54", "56", "48", "49"],
+            "answer": "56"
+          },
+          {
+            "question": "Which planet is closest to the Sun?",
+            "options": ["Earth", "Mars", "Mercury", "Venus"],
+            "answer": "Mercury"
+          },
+          {
+            "question": "What do bees make?",
+            "options": ["Milk", "Honey", "Silk", "Juice"],
+            "answer": "Honey"
+          },
+          {
+            "question": "What is the capital of India?",
+            "options": ["Mumbai", "Delhi", "Chennai", "Kolkata"],
+            "answer": "Delhi"
+          },
+          {
+            "question": "How many legs do insects have?",
+            "options": ["6", "8", "4", "10"],
+            "answer": "6"
+          },
+          {
+            "question": "What is the color of the sky on a clear day?",
+            "options": ["Blue", "Red", "Orange", "Purple"],
+            "answer": "Blue"
+          },
+          {
+            "question": "What is 25 divided by 5?",
+            "options": ["4", "5", "6", "7"],
+            "answer": "5"
+          },
+          {
+            "question": "Which gas do we need to breathe to stay alive?",
+            "options": ["Oxygen", "Carbon Dioxide", "Helium", "Hydrogen"],
+            "answer": "Oxygen"
+          },
+          {
+            "question": "What is the boiling point of water in degrees Celsius?",
+            "options": ["90°C", "100°C", "80°C", "120°C"],
+            "answer": "100°C"
+          },
+          {
+            "question": "What is 20% of 100?",
+            "options": ["10", "20", "30", "40"],
+            "answer": "20"
+          }
+        ]
+      },
+      {
+        "level": "hard",
+        "questions": [
+          {
+            "question": "What is the square root of 64?",
+            "options": ["6", "8", "9", "7"],
+            "answer": "8"
+          },
+          {
+            "question": "Which planet is known as the 'Red Planet'?",
+            "options": ["Venus", "Mars", "Jupiter", "Mercury"],
+            "answer": "Mars"
+          },
+          {
+            "question": "What is the smallest prime number?",
+            "options": ["1", "2", "3", "4"],
+            "answer": "2"
+          },
+          {
+            "question": "Who invented the telephone?",
+            "options": ["Alexander Graham Bell", "Thomas Edison", "Albert Einstein", "Isaac Newton"],
+            "answer": "Alexander Graham Bell"
+          },
+          {
+            "question": "What is the chemical symbol for water?",
+            "options": ["H2O", "O2", "CO2", "HO"],
+            "answer": "H2O"
+          },
+          {
+            "question": "What is 45% of 200?",
+            "options": ["80", "85", "90", "95"],
+            "answer": "90"
+          },
+          {
+            "question": "What is the longest river in the world?",
+            "options": ["Amazon", "Nile", "Ganga", "Yangtze"],
+            "answer": "Nile"
+          },
+          {
+            "question": "What is the capital of Japan?",
+            "options": ["Tokyo", "Seoul", "Beijing", "Shanghai"],
+            "answer": "Tokyo"
+          },
+          {
+            "question": "What is the value of Pi (π) up to two decimal places?",
+            "options": ["3.12", "3.14", "3.15", "3.16"],
+            "answer": "3.14"
+          },
+          {
+            "question": "Which gas is commonly known as 'laughing gas'?",
+            "options": ["Nitrous Oxide", "Oxygen", "Carbon Dioxide", "Hydrogen"],
+            "answer": "Nitrous Oxide"
+          }
+        ]
+      }
+    ]
+  }

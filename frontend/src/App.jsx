@@ -10,13 +10,17 @@ import NumberTest from "./pages/NumberTest";
 import Profile from "./components/Profile";
 import Settings from "./components/Settings";
 import Notification from "./components/Notification";
+import Signin from "./components/Signin";
+import Signup from "./components/Signup";
 
 function App() {
   return (
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Signin />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/learning" element={<Learning />} />
         <Route path="/easy" element={<EasyLevel />} />
         <Route path="/medium" element={<MediumLevel />} />

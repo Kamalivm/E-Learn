@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaVolumeUp } from 'react-icons/fa';
 
 const Home = () => {
-    const [username] = useState("Alex");
+    const [username, setUsername] = useState("");
     const navigate = useNavigate();
 
-    // Function to read text aloud
+    // Fetch username from localStorage when component mounts
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        console.log(user);
+        if (user && user.username) {
+            setUsername(user.username);
+        } else {
+            setUsername("Guest");
+        }
+    }, []);  // Empty dependency array to run once when the component mounts
+
+    // Function to speak text
     const speakText = (text) => {
         const speech = new SpeechSynthesisUtterance(text);
         speech.lang = "en-US";
@@ -23,13 +34,10 @@ const Home = () => {
                         cursor-pointer overflow-hidden`}
             onClick={onClick}
         >
-            {/* Icon (Stable Design - No Bounce) */}
             <div className="absolute top-3 right-3 text-3xl text-blue-500">{icon}</div>
-
             <h4 className="text-2xl font-bold text-blue-700">{title}</h4>
             <p className="text-lg text-gray-600">{desc}</p>
 
-            {/* Animated Progress Bar */}
             <div className="bg-blue-100 w-full h-4 rounded-full mt-3 overflow-hidden shadow-inner">
                 <div
                     className="bg-gradient-to-r from-blue-500 to-blue-700 h-4 rounded-full"
@@ -39,14 +47,10 @@ const Home = () => {
 
             <p className="text-md text-blue-600 mt-2">{progress}% complete</p>
 
-            {/* Speaker Button */}
             <button
                 className="absolute bottom-3 right-3 bg-blue-500 text-white p-2 rounded-full
                             hover:bg-blue-600 transition"
-                onClick={(e) => {
-                    e.stopPropagation();
-                    speakText(`${title} - ${desc}`);
-                }}
+                onClick={() => speakText(`${title} - ${desc}`)}
             >
                 <FaVolumeUp />
             </button>
@@ -55,8 +59,6 @@ const Home = () => {
 
     return (
         <div className="bg-white min-h-screen p-6">
-
-            {/* Welcome Banner */}
             <div
                 className="bg-blue-500 text-white text-center py-6 px-6 rounded-xl 
                             shadow-md mt-4"
@@ -66,7 +68,6 @@ const Home = () => {
                 <p className="text-lg">Let's continue your learning journey.</p>
             </div>
 
-            {/* Continue Learning Section */}
             <section className="mt-6 bg-white p-4 rounded-xl shadow-md border border-blue-400/40">
                 <h3 className="text-3xl font-bold text-blue-700 mb-4">📚 Continue Learning</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -97,7 +98,6 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Daily Challenge Section */}
             <section className="mt-6 bg-white p-4 rounded-xl shadow-md border border-blue-400/40">
                 <h3 className="text-3xl font-bold text-red-500 mb-4">🔥 Daily Challenge</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -127,7 +127,6 @@ const Home = () => {
                     />
                 </div>
             </section>
-
         </div>
     );
 };

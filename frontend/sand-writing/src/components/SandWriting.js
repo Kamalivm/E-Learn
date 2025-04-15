@@ -62,8 +62,7 @@ const SandWriting = () => {
   };
 
   return (
-    <div
-      style={{
+    <div   style={{
         textAlign: "center",
         padding: "20px",
         fontFamily: "Arial, sans-serif",
