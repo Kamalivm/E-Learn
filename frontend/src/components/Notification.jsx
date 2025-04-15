@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { FaBell, FaCheckCircle, FaTimesCircle, FaTrashAlt } from "react-icons/fa";
 
 const Notification = () => {
+    // Sample Notification Data
     const [notifications, setNotifications] = useState([
         { id: 1, message: "You have earned 50 gems! 🎯", isRead: false, time: "5 mins ago" },
         { id: 2, message: "Daily Challenge unlocked! 🚀", isRead: true, time: "1 hour ago" },
         { id: 3, message: "New achievement unlocked: 'Streak Master' 🏆", isRead: false, time: "Yesterday" },
     ]);
 
+    // Mark a notification as read
     const markAsRead = (id) => {
         setNotifications((prev) =>
             prev.map((note) =>
@@ -16,12 +18,14 @@ const Notification = () => {
         );
     };
 
+    // Delete a single notification
     const deleteNotification = (id) => {
         setNotifications((prev) =>
             prev.filter((note) => note.id !== id)
         );
     };
 
+    // Clear All Notifications
     const clearAll = () => {
         setNotifications([]);
     };
@@ -30,11 +34,13 @@ const Notification = () => {
         <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 p-8 flex items-center justify-center">
             <div className="bg-white shadow-lg rounded-3xl p-6 w-full max-w-2xl border-4 border-blue-400">
 
+                {/* Header Section */}
                 <div className="flex justify-between items-center mb-6">
                     <h2 className="text-3xl font-bold text-blue-600 flex items-center gap-2">
                         <FaBell /> Notifications
                     </h2>
 
+                    {/* Clear All Button */}
                     {notifications.length > 0 && (
                         <button
                             onClick={clearAll}
@@ -45,6 +51,7 @@ const Notification = () => {
                     )}
                 </div>
 
+                {/* Notification List */}
                 <div className="space-y-4">
                     {notifications.length > 0 ? (
                         notifications.map(({ id, message, isRead, time }) => (
@@ -64,6 +71,7 @@ const Notification = () => {
                                     <span className="text-sm text-gray-500">{time}</span>
                                 </div>
 
+                                {/* Actions */}
                                 <div className="flex items-center gap-3">
                                     {!isRead && (
                                         <button

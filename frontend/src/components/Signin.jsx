@@ -1,28 +1,55 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import axios from 'axios';
 
 const Signin = () => {
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    const handleSignIn = (e) => {
+    const handleSignIn = async (e) => {
         e.preventDefault();
-        if (!email || !password) {
+        setError(""); // Clear previous errors
+    
+        if (!username || !password) {
             setError("⚠️ Please fill in all fields.");
             return;
         }
 
-        const user = { name: "Alex Johnson", email, avatar: "https://cdn-icons-png.flaticon.com/512/149/149071.png" };
-        localStorage.setItem("user", JSON.stringify(user));
-
-        setError("");
-        navigate("/");
+        console.log(username , password);
+    
+        try {
+            const response = await fetch("http://localhost:8000/user/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ username, password })
+            });
+ console.log("everything ok");
+           
+    
+            if (!response.ok) {
+                // If response is not ok, get the error message from the server
+                const errorData = await response.json();
+                setError(errorData.error || "Login failed. Please try again.");
+                return;
+            }
+    
+            const data = await response.json();
+            alert(data.message);
+    
+            localStorage.setItem("token", data.token);
+            navigate("/home");
+        } catch (error) {
+            console.error("Login error:", error);
+            setError("An error occurred. Please try again.");
+        }
     };
-
+    
     return (
         <div className="flex justify-center items-center min-h-screen">
             <div className="bg-white p-10 rounded-xl shadow-2xl w-[450px] text-center border border-gray-200">
@@ -41,11 +68,11 @@ const Signin = () => {
                     <div className="relative mt-4">
                         <FaUser className="absolute left-4 top-3 text-blue-400 text-xl" />
                         <input
-                            type="email"
+                            type="text"
                             className="w-full px-12 py-3 border border-blue-300 rounded-lg bg-blue-50 text-gray-700 placeholder-blue-400 focus:ring-2 focus:ring-blue-500 focus:outline-none transition text-lg"
-                            placeholder="Enter your email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Enter your Username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                         />
                     </div>
 

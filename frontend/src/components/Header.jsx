@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import {
-    FaHome, FaGraduationCap, FaUser, FaGift, FaCog, 
+import {FaHome, FaGraduationCap, FaUser, FaGift, FaCog, 
     FaSignOutAlt, FaMoon, FaSun, FaGem, FaSignInAlt
 } from "react-icons/fa";
 

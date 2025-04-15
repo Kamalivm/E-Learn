@@ -11,6 +11,7 @@ const Profile = () => {
         achievements: ["First Win", "Streak Master", "Animal Expert"],
     });
 
+    // Handles profile data updates
     const handleEditToggle = () => setIsEditing(!isEditing);
 
     const handleInputChange = (e) => {
@@ -23,6 +24,7 @@ const Profile = () => {
 
             <div className="bg-white shadow-2xl rounded-3xl p-10 w-full max-w-3xl text-center border-4 border-blue-500 transform hover:scale-[1.02] transition-all duration-300">
 
+                {/* Profile Image & Name */}
                 <div className="mb-8 flex flex-col items-center relative">
                     <img
                         src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
@@ -30,6 +32,7 @@ const Profile = () => {
                         className="w-32 h-32 rounded-full border-4 border-blue-500 shadow-md"
                     />
 
+                    {/* Profile Name */}
                     {isEditing ? (
                         <input
                             type="text"
@@ -45,6 +48,7 @@ const Profile = () => {
                     <p className="text-blue-500 text-md">{profileData.email}</p>
                 </div>
 
+                {/* Gem Counter & Streak Progress */}
                 <div className="flex justify-center gap-6 mb-8">
                     <div className="flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-5 py-3 rounded-full shadow-md">
                         <FaGem size={24} />
@@ -57,6 +61,7 @@ const Profile = () => {
                     </div>
                 </div>
 
+                {/* Streak Progress Bar */}
                 <div className="relative w-full bg-gray-300 rounded-full h-5 mb-6 shadow-inner overflow-hidden">
                     <div
                         className="bg-green-500 h-5 rounded-full transition-all"
@@ -65,6 +70,7 @@ const Profile = () => {
                 </div>
                 <p className="text-sm text-blue-600 italic">🔥 Reach 10 days for a special reward!</p>
 
+                {/* Achievements Section */}
                 <div className="mt-8 bg-blue-50 p-5 rounded-lg border-2 border-blue-300 shadow-md">
                     <h3 className="text-2xl font-bold text-blue-700 mb-3">🏆 Achievements</h3>
                     <div className="grid grid-cols-2 gap-3 text-blue-600 font-medium">
@@ -80,6 +86,7 @@ const Profile = () => {
                     </div>
                 </div>
 
+                {/* Edit & Save Button */}
                 <div className="flex justify-center gap-4 mt-8">
                     <button
                         onClick={handleEditToggle}
@@ -91,6 +98,7 @@ const Profile = () => {
                         {isEditing ? "Save Changes" : "Edit Profile"}
                     </button>
 
+                    {/* Settings & Logout */}
                     <div className="flex gap-4">
                         <button
                             className="flex items-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-600"

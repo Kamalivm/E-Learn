@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import axios from 'axios';
 
 const Signup = () => {
-    const [name, setName] = useState("");
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -12,24 +13,34 @@ const Signup = () => {
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    const handleSignUp = (e) => {
+    const handleSignUp = async (e) => {
         e.preventDefault();
-        if (!name || !email || !password || password !== confirmPassword) {
-            setError("⚠️ Please check your inputs.");
+        if (!username || !email || !password || !confirmPassword) {
+            setError("⚠️ Please fill in all fields.");
             return;
         }
 
-        const user = { name, email, avatar: "https://cdn-icons-png.flaticon.com/512/149/149071.png" };
-        localStorage.setItem("user", JSON.stringify(user));
+        if (password !== confirmPassword) {
+            setError("⚠️ Passwords do not match.");
+            return;
+        }
 
-        setError("");
-        navigate("/");
+        try {
+            const response = await axios.post('http://localhost:8000/user/signup', {
+                username,
+                email,
+                password
+            });
+            alert(response.data.message);
+            navigate("/home");
+        } catch (err) {
+            setError(err.response?.data?.error || "An error occurred. Please try again.");
+        }
     };
 
     return (
         <div className="flex justify-center items-center min-h-screen">
             <div className="bg-white p-10 rounded-xl shadow-2xl w-[450px] text-center border border-gray-200">
-                
                 <h2 className="text-3xl font-bold text-blue-600">Join Us! 🎉</h2>
                 <p className="text-gray-500 text-lg mt-2">Create your account</p>
 
@@ -40,15 +51,14 @@ const Signup = () => {
                 )}
 
                 <form className="mt-6" onSubmit={handleSignUp}>
-
                     <div className="relative mt-4">
                         <FaUser className="absolute left-4 top-3 text-blue-400 text-xl" />
                         <input
                             type="text"
                             className="w-full px-12 py-3 border border-blue-300 rounded-lg bg-blue-50 text-gray-700 placeholder-blue-400 focus:ring-2 focus:ring-blue-500 focus:outline-none transition text-lg"
-                            placeholder="Enter your name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            placeholder="Enter your username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                         />
                     </div>
 

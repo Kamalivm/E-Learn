@@ -18,6 +18,7 @@ const Settings = () => {
         dataSharing: false,
     });
 
+    // Handle Change for Inputs
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setSettings((prevSettings) => ({
@@ -26,6 +27,7 @@ const Settings = () => {
         }));
     };
 
+    // Handle Profile Image Upload
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -40,10 +42,12 @@ const Settings = () => {
         }
     };
 
+    // Save Changes
     const handleSave = () => {
         alert("Settings saved successfully! 🎉");
     };
 
+    // Reset Changes
     const handleReset = () => {
         alert("Settings reset to default. 🔄");
         window.location.reload();
@@ -53,13 +57,16 @@ const Settings = () => {
         <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 p-8 flex items-center justify-center">
             <div className="bg-white shadow-2xl rounded-3xl p-8 w-full max-w-3xl border-4 border-blue-400 transform hover:scale-[1.02] transition-all duration-300">
 
+                {/* Title Section */}
                 <h2 className="text-3xl font-extrabold text-blue-700 mb-6 text-center">⚙️ Settings</h2>
 
+                {/* Profile Settings */}
                 <div className="mb-6 bg-blue-50 p-4 rounded-lg border-2 border-blue-300 shadow-md">
                     <h3 className="text-2xl font-bold text-blue-600 mb-3 flex items-center gap-2">
                         <FaUser /> Profile Settings
                     </h3>
 
+                    {/* Avatar with Upload Icon */}
                     <div className="relative w-24 h-24 mb-4">
                         <img
                             src={settings.avatar}
@@ -78,6 +85,7 @@ const Settings = () => {
                         />
                     </div>
 
+                    {/* Name and Email */}
                     <input
                         type="text"
                         name="name"
@@ -96,6 +104,7 @@ const Settings = () => {
                     />
                 </div>
 
+                {/* Password Settings */}
                 <div className="mb-6 bg-blue-50 p-4 rounded-lg border-2 border-blue-300 shadow-md">
                     <h3 className="text-2xl font-bold text-blue-600 mb-3 flex items-center gap-2">
                         <FaLock /> Account Security
@@ -129,6 +138,7 @@ const Settings = () => {
                     />
                 </div>
 
+                {/* Notification Settings */}
                 <div className="mb-6 bg-blue-50 p-4 rounded-lg border-2 border-blue-300 shadow-md">
                     <h3 className="text-2xl font-bold text-blue-600 mb-3 flex items-center gap-2">
                         <FaBell /> Notification Preferences
@@ -145,6 +155,7 @@ const Settings = () => {
                     </label>
                 </div>
 
+                {/* Theme Settings */}
                 <div className="mb-6 bg-blue-50 p-4 rounded-lg border-2 border-blue-300 shadow-md">
                     <h3 className="text-2xl font-bold text-blue-600 mb-3 flex items-center gap-2">
                         <FaPalette /> Theme Preferences
@@ -161,6 +172,7 @@ const Settings = () => {
                     </select>
                 </div>
 
+                {/* Save & Reset Buttons */}
                 <div className="flex justify-center gap-4 mt-6">
                     <button
                         onClick={handleSave}
