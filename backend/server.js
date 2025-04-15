@@ -18,6 +18,10 @@ app.listen(port, () => {
   console.log('Running at server ' + port);
 });
 
+app.get('/', (req, res) => {
+  res.send("server is running")
+})
+
 async function conne() {
   console.log('DB link: ' + process.env.MONGO_URL);
   try {
