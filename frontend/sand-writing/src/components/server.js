@@ -26,7 +26,7 @@ app.post("/recognize", upload.single("image"), (req, res) => {
   // Run OCR on the uploaded image
   Tesseract.recognize(imagePath, "eng")
     .then(({ data: { text } }) => {
-      console.log("✅ Extracted Text:", text); // Log text in VS Code
+      console.log("✅ Extracted Text:", text); 
       res.json({ text });
     })
     .catch((error) => {

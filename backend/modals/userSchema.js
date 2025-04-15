@@ -10,6 +10,11 @@ const userSchema = new moongoose.Schema({
     email : {
         type : String ,
     },
+    gems : {
+        type : Number,
+        default : 0
+    }
+
     
 })
 

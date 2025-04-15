@@ -1,12 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaVolumeUp } from 'react-icons/fa';
 
 const Home = () => {
-    const [username] = useState("Alex");
+<<<<<<< HEAD
+    const navigate = useNavigate();
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem("user");
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        } else {
+            navigate("/signin");
+        }
+    }, [navigate]);
+
+=======
+    const [username, setUsername] = useState("");
     const navigate = useNavigate();
 
-    // Function to read text aloud
+    // Fetch username from localStorage when component mounts
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        console.log(user);
+        if (user && user.username) {
+            setUsername(user.username);
+        } else {
+            setUsername("Guest");
+        }
+    }, []);  // Empty dependency array to run once when the component mounts
+
+    // Function to speak text
+>>>>>>> 4194611789b966beead4207a572fb9ee4f88bc7b
     const speakText = (text) => {
         const speech = new SpeechSynthesisUtterance(text);
         speech.lang = "en-US";
@@ -14,22 +40,26 @@ const Home = () => {
         window.speechSynthesis.speak(speech);
     };
 
+<<<<<<< HEAD
+=======
     // Reusable Card Component
+>>>>>>> 4194611789b966beead4207a572fb9ee4f88bc7b
     const LearningCard = ({ title, desc, progress, icon, color, onClick }) => (
         <div
             className={`relative ${color} p-6 rounded-xl shadow-md
                         bg-white border border-blue-400/40 
+<<<<<<< HEAD
+                        text-center w-full transform hover:scale-105 transition
+=======
                         text-center w-full transform hover:scale-105 transition 
+>>>>>>> 4194611789b966beead4207a572fb9ee4f88bc7b
                         cursor-pointer overflow-hidden`}
             onClick={onClick}
         >
-            {/* Icon (Stable Design - No Bounce) */}
             <div className="absolute top-3 right-3 text-3xl text-blue-500">{icon}</div>
-
             <h4 className="text-2xl font-bold text-blue-700">{title}</h4>
             <p className="text-lg text-gray-600">{desc}</p>
 
-            {/* Animated Progress Bar */}
             <div className="bg-blue-100 w-full h-4 rounded-full mt-3 overflow-hidden shadow-inner">
                 <div
                     className="bg-gradient-to-r from-blue-500 to-blue-700 h-4 rounded-full"
@@ -39,37 +69,56 @@ const Home = () => {
 
             <p className="text-md text-blue-600 mt-2">{progress}% complete</p>
 
-            {/* Speaker Button */}
             <button
-                className="absolute bottom-3 right-3 bg-blue-500 text-white p-2 rounded-full
-                            hover:bg-blue-600 transition"
+<<<<<<< HEAD
+                className="absolute bottom-3 right-3 bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition"
                 onClick={(e) => {
                     e.stopPropagation();
                     speakText(`${title} - ${desc}`);
                 }}
+=======
+                className="absolute bottom-3 right-3 bg-blue-500 text-white p-2 rounded-full
+                            hover:bg-blue-600 transition"
+                onClick={() => speakText(`${title} - ${desc}`)}
+>>>>>>> 4194611789b966beead4207a572fb9ee4f88bc7b
             >
                 <FaVolumeUp />
             </button>
         </div>
     );
 
+<<<<<<< HEAD
+    if (!user) return null;
+
     return (
         <div className="bg-white min-h-screen p-6">
-
-            {/* Welcome Banner */}
+            
+            <div
+                className="bg-blue-500 text-white text-center py-6 px-6 rounded-xl shadow-md mt-4"
+                onClick={() => speakText(`Welcome back, ${user.name}! Let's continue your learning journey.`)}
+            >
+                <h2 className="text-3xl font-bold">👋 Welcome back, {user.name}! 🌟</h2>
+=======
+    return (
+        <div className="bg-white min-h-screen p-6">
             <div
                 className="bg-blue-500 text-white text-center py-6 px-6 rounded-xl 
                             shadow-md mt-4"
                 onClick={() => speakText(`Welcome back, ${username}! Let's continue your learning journey.`)}
             >
                 <h2 className="text-3xl font-bold">👋 Welcome back, {username}! 🌟</h2>
+>>>>>>> 4194611789b966beead4207a572fb9ee4f88bc7b
                 <p className="text-lg">Let's continue your learning journey.</p>
             </div>
 
-            {/* Continue Learning Section */}
             <section className="mt-6 bg-white p-4 rounded-xl shadow-md border border-blue-400/40">
                 <h3 className="text-3xl font-bold text-blue-700 mb-4">📚 Continue Learning</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<<<<<<< HEAD
+                    <LearningCard title="123" desc="Numbers" progress={75} icon="🔢" color="bg-blue-50" onClick={() => navigate('/number-test')} />
+                    <LearningCard title="ABC" desc="Alphabet" progress={40} icon="🔤" color="bg-blue-50" onClick={() => speakText('Alphabet - 40% complete')} />
+                    <LearningCard title="Nature" desc="Nature" progress={10} icon="🌿" color="bg-blue-50" onClick={() => speakText('Nature - 10% complete')} />
+=======
                     <LearningCard
                         title="123"
                         desc="Numbers"
@@ -94,13 +143,18 @@ const Home = () => {
                         color="bg-blue-50"
                         onClick={() => speakText('Nature - 10% complete')}
                     />
+>>>>>>> 4194611789b966beead4207a572fb9ee4f88bc7b
                 </div>
             </section>
 
-            {/* Daily Challenge Section */}
             <section className="mt-6 bg-white p-4 rounded-xl shadow-md border border-blue-400/40">
                 <h3 className="text-3xl font-bold text-red-500 mb-4">🔥 Daily Challenge</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<<<<<<< HEAD
+                    <LearningCard title="Counting Adventure" desc="Count the animals and win a badge!" progress={50} icon="🦓" color="bg-blue-50" onClick={() => speakText('Counting Adventure - 50% complete')} />
+                    <LearningCard title="Memory Master" desc="Match the pairs to win 100 gems!" progress={30} icon="🧠" color="bg-blue-50" onClick={() => speakText('Memory Master - 30% complete')} />
+                    <LearningCard title="Shape Sorter" desc="Sort the shapes by color and size!" progress={60} icon="🔷" color="bg-blue-50" onClick={() => speakText('Shape Sorter - 60% complete')} />
+=======
                     <LearningCard
                         title="Counting Adventure"
                         desc="Count the animals and win a badge!"
@@ -125,9 +179,9 @@ const Home = () => {
                         color="bg-blue-50"
                         onClick={() => speakText('Shape Sorter - 60% complete')}
                     />
+>>>>>>> 4194611789b966beead4207a572fb9ee4f88bc7b
                 </div>
             </section>
-
         </div>
     );
 };
