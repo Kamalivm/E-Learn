@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import userRouter from './routes/UserRoutes.js';
 import dotenv from 'dotenv';
+import questionRoutes from './routes/questionRoutes.js';
 
 dotenv.config();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/user', userRouter);
+app.use('/ques', questionRoutes); // Assuming you want to use the same router for questions
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {

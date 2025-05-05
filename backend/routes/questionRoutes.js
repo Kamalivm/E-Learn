@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { getEasyQuestions, getMediumQuestions, getHardQuestions } = require('../controllers/questionsController');
+const { fetchQuestions } = require('../controllers/questionsController');
 
-router.get('/easy', getEasyQuestions);
-router.get('/medium', getMediumQuestions);
-router.get('/hard', getHardQuestions);
+router.get('/questions', fetchQuestions); // Fetch all questions
+// router.get('/medium', getMediumQuestions);
+// router.get('/hard', getHardQuestions);
 
 module.exports = router;

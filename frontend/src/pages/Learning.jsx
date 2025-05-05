@@ -48,7 +48,7 @@ const Learning = () => {
                     className="bg-white shadow-lg border-2 border-red-400 rounded-2xl text-red-700 
                                 p-4 flex flex-col items-center cursor-pointer 
                                 transform hover:scale-105 hover:bg-red-500 hover:text-white transition-all"
-                    onClick={() => navigate("/advanced")}
+                    onClick={() => navigate("/hard")}
                 >
                     <FaRocket size={50} className="mb-3 text-red-400 animate-zoom" />
                     <h3 className="text-2xl font-bold">Advanced</h3>
