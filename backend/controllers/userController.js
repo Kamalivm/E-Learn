@@ -9,6 +9,7 @@ const saltRounds = 10;
 export const signup = async (req, res) => {
   const { username, password, email } = req.body;
 
+  console.log("username in signup");
   if (!username || !password || !email) {
     return res.status(422).json({ error: "All fields are required" });
   }
@@ -48,6 +49,7 @@ export const login = async (req, res) => {
     return res.status(404).json({ error: "User not found" });
   }
 
+  console.log(existingUser.password);
   const isPasswordValid = await bcrypt.compare(password, existingUser.password);
   if (!isPasswordValid) {
     return res.status(401).json({ error: "Invalid credentials" });
@@ -62,10 +64,29 @@ export const login = async (req, res) => {
     process.env.JWT_SECRET,
     { expiresIn: '1h' }
   );
-
+  res.cookie("key","value",{maxAge: 1000*60*60});
   console.log(`User ${username} successfully logged in. Token generated.`);
 
   res.status(200).json({ message: "Login successful", token });
+};
+
+
+export const getUserDetails = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    res.status(200).json({
+      username: user.username,
+      email: user.email,
+      gems: user.gems,
+    });
+  } catch (error) {
+    res.status(500).json({ error: "Server Error" });
+  }
 };
 
 export async function updateuserpoints(username, points) {
@@ -84,5 +105,17 @@ export async function updateuserpoints(username, points) {
     console.log("Updated gems:", user.gems);
   } catch (error) {
     console.error("Error updating user points:", error);
+  }
+}
+
+export async function handleUpdateGems(req, res) {
+  const { username, points } = req.body;
+
+  try {
+    await updateuserpoints(username, points);
+    res.json({ message: "${points} Gems updated successfully." });
+  } catch (error) {
+    console.error("Error in /update-gems route:", error);
+    res.status(500).json({ error: "Failed to update gems." });
   }
 }

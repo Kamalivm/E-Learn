@@ -153,6 +153,7 @@ const EasyLevel = () => {
         }
     };
 
+    // Handle previous question
     const handlePrev = () => {
         if (currentIndex > 0) {
             setCurrentIndex(currentIndex - 1);
@@ -256,3 +257,4 @@ const EasyLevel = () => {
 }
 
 export default EasyLevel;
+

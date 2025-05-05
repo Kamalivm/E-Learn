@@ -1,25 +1,23 @@
-// const data = require("")
-const data = require("../data/questions")
-const js = require('json5');
 const fs = require('fs').promises;
 const path = require('path');
-const result = true;
 
-
-
-async function fetchQuestions(){
-    try{
+async function fetchQuestions(req, res) {
+    try {
         const path_to_file = path.join(__dirname, '../data/questions.json');
-        const data = await fs.readFile(path_to_file , 'utf8');
+        const data = await fs.readFile(path_to_file, 'utf8');
         const questionsData = JSON.parse(data);
-        questionsData.level = "easy";
 
-        console.log(questionsData.level == 'easy' ? questionsData.questions : 'No questions found');
-        
+        const easyQuestions = questionsData.questions.find((levelData) => levelData.level === 'easy');
 
-    }
-    catch(er){
-        console.error('error : ', er);
+        if (easyQuestions) {
+            return res.json(easyQuestions.questions);
+        } else {
+            return res.status(404).json({ message: 'No easy questions found' });
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        return res.status(500).json({ message: 'Error fetching questions' });
     }
 }
-fetchQuestions();
+
+module.exports = { fetchQuestions };
