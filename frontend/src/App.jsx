@@ -12,6 +12,7 @@ import Settings from "./components/Settings";
 import Notification from "./components/Notification";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
+import AdvancedLevel from "./components/AdvancedLevel";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/learning" element={<Learning />} />
         <Route path="/easy" element={<EasyLevel />} />
         <Route path="/medium" element={<MediumLevel />} />
+        <Route path="/advanced" element={<AdvancedLevel />} />
         <Route path="/rewards" element={<Rewards />} />
         <Route path="/number-test" element={<NumberTest />} />
         <Route path="/profile" element={<Profile />} />

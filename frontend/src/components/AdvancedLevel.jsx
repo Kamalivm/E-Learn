@@ -1,87 +1,122 @@
 import { useState } from "react";
 import { FaVolumeUp, FaStar, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-// Image imports
-import number6Img from "/src/assets/number6.png";
-import number7Img from "/src/assets/number7.jpeg";
-import number8Img from "/src/assets/number8.jpeg";
-import number10Img from "/src/assets/number10.jpg";
-import triangleImg from "/src/assets/triangle.jpg";
-import circleImg from "/src/assets/circle.jpeg";
-import squareImg from "/src/assets/square.jpg";
-import carImg from "/src/assets/car.jpg";
-import tigerImg from "/src/assets/tiger.jpeg";
-import chairImg from "/src/assets/chair.jpg";
-import coldImg from "/src/assets/cold.jpg";
-import warmImg from "/src/assets/warm.jpg";
-import fireImg from "/src/assets/fire.jpg";
-import helpImg from "/src/assets/help.jpeg";
-import laughImg from "/src/assets/laugh.jpeg";
-import ignoreImg from "/src/assets/ignore.png";
-import potatoImg from "/src/assets/potato.jpeg";
-import appleImg from "/src/assets/apple.jpg";
-import orangeImg from "/src/assets/orange.jpeg";
-import bImg from "/src/assets/b.png";
-import aImg from "/src/assets/a.png";
-import lImg from "/src/assets/l.png";
-import starImg from "/src/assets/star.jpeg";
-import pencilImg from "/src/assets/pencil.jpeg";
+import number1Img from "/src/assets/number1.png"
+import number2Img from "/src/assets/number2.png"
+import number3Img from "/src/assets/number3.png"
+import number5Img from "/src/assets/number5.png"
+import number6Img from "/src/assets/number6.png"
+import number7Img from "/src/assets/number7.jpeg"
+import number8Img from "/src/assets/number8.jpeg"
+import number9Img from "/src/assets/number9.png"
+import blueImg from "/src/assets/blue.jpg"
+import yellowImg from "/src/assets/yellow.jpeg"
+import redImg from "/src/assets/red.jpg"
+import bImg from "/src/assets/b.png"
+import cImg from "/src/assets/c.png"
+import dImg from "/src/assets/d.png"
 
-const mediumQuestions = [
+
+const advancedQuestions = [
     {
-        question: "What comes after 5?",
-        imageOptions: [{ img: number6Img }, { img: number7Img }, { img: number8Img }],
-        correctAnswer: number6Img,
+        question: "What is 4 + 3?",
+        imageOptions: [
+            { img: number6Img },
+            { img: number7Img },
+            { img: number8Img }
+        ],
+        correctAnswer: number7Img,
     },
     {
-        question: "Which shape has 3 sides?",
-        imageOptions: [{ img: circleImg }, { img: squareImg }, { img: triangleImg }],
-        correctAnswer: triangleImg,
-    },
-    {
-        question: "Which is a vehicle?",
-        imageOptions: [{ img: tigerImg }, { img: carImg }, { img: chairImg }],
-        correctAnswer: carImg,
-    },
-    {
-        question: "What is opposite of hot?",
-        imageOptions: [{ img: coldImg }, { img: warmImg }, { img: fireImg }],
-        correctAnswer: coldImg,
-    },
-    {
-        question: "If your friend is crying, what should you do?",
-        imageOptions: [{ img: laughImg }, { img: ignoreImg }, { img: helpImg }],
-        correctAnswer: helpImg,
-    },
-    {
-        question: "Apple, Orange, Potato – Pick the odd one",
-        imageOptions: [{ img: appleImg }, { img: orangeImg }, { img: potatoImg }],
-        correctAnswer: potatoImg,
-    },
-    {
-        question: "2, 4, 6, __?",
-        imageOptions: [{ img: number7Img }, { img: number8Img }, { img: number10Img }],
+        question: "Which is greater: 8 or 5?",
+        imageOptions: [
+            { img: number5Img },
+            { img: number8Img },
+            { img: number3Img }
+        ],
         correctAnswer: number8Img,
     },
     {
-        question: "What is the first letter of 'Ball'?",
-        imageOptions: [{ img: bImg }, { img: aImg }, { img: lImg }],
-        correctAnswer: bImg,
+        question: "Fill in the blank: A, B, C, __?",
+        imageOptions: [
+            { img: bImg },
+            { img: dImg },
+            { img: cImg }
+        ],
+        correctAnswer: dImg,
+    },
+    // {
+    //     question: "Arrange: Brush → Eat → School → Sleep",
+    //     imageOptions: [
+    //         { img: routineImg1 }, // Image showing the correct sequence visually
+    //         { img: routineImg2 }, // Incorrect
+    //         { img: routineImg3 }  // Incorrect
+    //     ],
+    //     correctAnswer: routineImg1,
+    // },
+    {
+        question: "10 - 4 = ?",
+        imageOptions: [
+            { img: number6Img },
+            { img: number5Img },
+            { img: number7Img }
+        ],
+        correctAnswer: number6Img,
+    },
+    // {
+    //     question: "Match: Cat → Meow, Dog → Bark, Duck → Quack",
+    //     imageOptions: [
+    //         { img: matchCorrectImg }, // Image showing the correct matching
+    //         { img: matchWrong1Img },
+    //         { img: matchWrong2Img }
+    //     ],
+    //     correctAnswer: matchCorrectImg,
+    // },
+    {
+        question: "Pattern: 🔵🔴🔵🔴 __?",
+        imageOptions: [
+            { img: blueImg },
+            { img: redImg },
+            { img: yellowImg }
+        ],
+        correctAnswer: blueImg,
     },
     {
-        question: "Which one is a shape?",
-        imageOptions: [{ img: appleImg }, { img: starImg }, { img: pencilImg }],
-        correctAnswer: starImg,
+        question: "3 apples, eat 1. How many left?",
+        imageOptions: [
+            { img: number1Img },
+            { img: number2Img },
+            { img: number3Img }
+        ],
+        correctAnswer: number2Img,
     },
-    ];
+    // {
+    //     question: "What is the plural of 'Toy'?",
+    //     imageOptions: [
+    //         { img: toyImg },
+    //         { img: toysImg },
+    //         { img: toyzImg }
+    //     ],
+    //     correctAnswer: toysImg,
+    // },
+    {
+        question: "Which number is even?",
+        imageOptions: [
+            { img: number3Img },
+            { img: number6Img },
+            { img: number9Img }
+        ],
+        correctAnswer: number6Img,
+    },
+];
 
-const MediumLevel = () => {
+const AdvancedLevel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedImg, setSelectedImg] = useState(null);
     const [isCorrect, setIsCorrect] = useState(false);
     const [stars, setStars] = useState(0);
 
-    const currentQuestion = mediumQuestions[currentIndex];
+    const currentQuestion = advancedQuestions[currentIndex];
 
     const handleOptionClick = (img) => {
         setSelectedImg(img);
@@ -98,7 +133,7 @@ const MediumLevel = () => {
     };
 
     const handleNext = () => {
-        if (currentIndex < mediumQuestions.length - 1) {
+        if (currentIndex < advancedQuestions.length - 1) {
         setCurrentIndex(currentIndex + 1);
         setSelectedImg(null);
         }
@@ -122,14 +157,14 @@ const MediumLevel = () => {
         <div className="min-h-screen bg-white px-4 py-6 flex flex-col items-center">
         {/* Title */}
         <h1 className="text-4xl md:text-5xl font-extrabold text-blue-700 mb-6 text-center drop-shadow-sm">
-            🎯 Medium Level Quiz
+            🎯 Advanced Level Quiz
         </h1>
 
         {/* Progress Bar */}
         <div className="w-full max-w-2xl bg-gray-200 rounded-full h-5 mb-8 shadow-inner relative">
             <div
             className="bg-green-400 h-5 rounded-full transition-all duration-500"
-            style={{ width: `${((currentIndex + 1) / mediumQuestions.length) * 100}%` }}
+            style={{ width: `${((currentIndex + 1) / advancedQuestions.length) * 100}%` }}
             ></div>
         </div>
 
@@ -181,7 +216,7 @@ const MediumLevel = () => {
                 <FaArrowLeft /> Prev
             </button>
             )}
-            {currentIndex < mediumQuestions.length - 1 && (
+            {currentIndex < advancedQuestions.length - 1 && (
                 <button
                     onClick={handleNext}
                     className="flex items-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-600 transition"
@@ -206,4 +241,4 @@ const MediumLevel = () => {
     );
 };
 
-export default MediumLevel;
+export default AdvancedLevel;
